@@ -1,0 +1,26 @@
+[project]
+name = "alber-comfyui-batch-image-loader"
+version = "1.0.0"
+description = "ComfyUI 批量图片输入节点：文件夹选择、列表 + 预览、批量改名、多种排序，输出可直接连线的 IMAGE batch"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "jiyaxi2003-jzl" }]
+keywords = ["comfyui", "comfyui-node", "image", "batch", "loader", "img2video"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Multimedia :: Graphics",
+]
+dependencies = ["Pillow>=9.0.0"]
+
+[project.urls]
+Homepage = "https://github.com/jiyaxi2003-jzl/ComfyUI-BatchImageLoader"
+Repository = "https://github.com/jiyaxi2003-jzl/ComfyUI-BatchImageLoader"
+Issues = "https://github.com/jiyaxi2003-jzl/ComfyUI-BatchImageLoader/issues"
+
+[tool.comfy]
+DisplayName = "ALBER-Batch Image Loader"
+Icon = "📂"
+requires-comfyui = ">=0.3.0"

@@ -1,0 +1,49 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  backend:
+    name: 后端逻辑测试 (Python ${{ matrix.python-version }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.9", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: 安装依赖
+        run: pip install pillow numpy aiohttp
+
+      - name: 语法检查
+        run: python -m compileall -q .
+
+      - name: 运行后端测试
+        run: python tests/test_batch_image_loader.py
+
+  frontend:
+    name: 前端界面测试 (jsdom)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: 安装依赖
+        working-directory: tests
+        run: npm ci
+
+      - name: 运行前端测试
+        working-directory: tests
+        run: npm test

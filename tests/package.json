@@ -1,0 +1,13 @@
+{
+  "name": "batch-image-loader-tests",
+  "version": "1.0.0",
+  "private": true,
+  "description": "jsdom 环境下模拟 ComfyUI 前端，验证 BatchImageLoader 的界面逻辑",
+  "type": "commonjs",
+  "scripts": {
+    "test": "node test_ui_logic.cjs"
+  },
+  "devDependencies": {
+    "jsdom": "^30.0.0"
+  }
+}
